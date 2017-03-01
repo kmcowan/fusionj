@@ -41,7 +41,7 @@ ParallelStream pstream = (ParallelStream)streamFactory.constructStream("parallel
       props.put("q", "*:*");
       props.put("qt", "/export");
       props.put("sort", "id asc");
-      props.put("fl", "id");
+      props.put("fl", "id,body");
       props.put("rows", "20");
       
       cstream = new CloudSolrStream(zkHost, collection, props);
@@ -58,7 +58,7 @@ ParallelStream pstream = (ParallelStream)streamFactory.constructStream("parallel
           }
 
           String fieldA =  tuple.getString("id");
-          String fieldB =  " ";//tuple.getString("body");
+          String fieldB =  tuple.getString("body");
           String fieldC = " ";//tuple.getString("resourceName");
           System.out.println(fieldA + ", " + fieldB + ", " + fieldC);
         }
