@@ -19,10 +19,10 @@ var base64encode = function (doc) {
         logger.info("steve6" + myId);
         if (myId.contains(".csv#") || myId.endsWith(".csv")) {
             logger.info("steve7 " + doc.getFirstFieldValue("_raw_content_"));
-
-            binData = new String(doc.getFirstFieldValue("_raw_content_")).getBytes();
+            var rawData = String.valueOf(doc.getFirstFieldValue("_raw_content_")).getBytes();
+            binData = rawData;
             var data = "" + new String(decoder.decode(binData));
-            doc.addField("csvdata", data);
+            doc.addField("csvdata_txt", data);
             logger.info("steve8 " + doc.csvdata);
             doc.addField("_raw_content_", null);
         } else {
