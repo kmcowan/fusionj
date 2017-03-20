@@ -17,7 +17,7 @@ var base64encode = function (doc) {
         var decoder = base64.getDecoder();
 
         logger.info("steve6" + myId);
-        if (myId.endsWith(".csv")) {
+        if (myId.contains(".csv#") || myId.endsWith(".csv")) {
             logger.info("steve7 " + doc.getFirstFieldValue("_raw_content_"));
 
             binData = new String(doc.getFirstFieldValue("_raw_content_")).getBytes();
